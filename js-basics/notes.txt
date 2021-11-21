@@ -1,0 +1,157 @@
+-- let & const & var - 
+    how let and const cannot work in different browser but they can work using babel 
+    (later)
+
+--Data types
+    . 7 data types, check the lecture (Number, String, Boolean, Null, Undefined, Object, Symbol)
+    . JS is considered a loosely typed language
+    . null vs undefined, a null variable we explicitly set its value, undefined for 
+    variables that not yet been defined
+
+--Strings
+    . concatinating with +
+    . getting the chars using thisString[i]
+    . getting the length of a string using thisString.length property
+    . using the string method using thisString.toUpperCase() method
+    . NB: string type in js has properties and methods 
+
+    --Common strings method
+    refer to the documentation for more info
+    slice(), substr(), lastIndexOf(), replace()...etc 
+
+--Numbers
+    math operators +, -, *, **, /, %
+    order of operators - B I D M A S 
+    NaN - not a number console.log(5 / 'hello') -- return NaN
+
+--Template strings / literal
+    let result = `this a backticks that has a ${variable}`;
+    we can create HTML TEMPLATES with them 
+
+--Arrays
+    we can store random data types
+    let random = ['salah', 'ayoub', 10, 20];
+
+    arrays have properties and methods 
+    length - join() - concact(), push() - pop()...etc 
+
+
+--Null and Underfined
+    NULL  - explicitly set a variable with no value 
+    Undefined - for variable that not yet been defined 
+
+--Loose equality 
+    == - a variable type is not considered when checking for the equality 
+        console.log(25 == '25'); // returns true
+
+--Strict Equality 
+    === - a variable type is considered when doing the comparison 
+        console.log(25 === '25'); // returns false   
+
+--Type Conversion  
+    console.log('100' + 1); // returns 1001
+    we can perform explicit type conversion using Number() and String(), Boolean()...etc 
+
+    there are truthy values - positive numbers are true and negative numbers are false  
+
+    all strings considered true
+
+--Block scope
+    variables declared with const and let are considered when there are blocks scopes 
+    var are not considered in block scopes
+    Example: 
+    let temp1 = 10;
+    if(true) {
+        let temp1 = 20;
+        var temp2 = 'test';
+        console.log(temp1); // returns 20
+
+        if(true) {
+            let temp1 = 30;
+            console.log(temp1); // returns 30
+        }
+    }
+    console.log(temp1, temp2); // returns 10 & 'test'
+
+--Functions and methods 
+    function declaration function func1() {..} - in this case HOISTING is handled by JS
+    when we define a function using declaration JS engine puts the declaration at the top.
+
+    function expression const func2 = function() {..} - in this case HOISTING is not handled 
+
+    NB: use function expression as its considered a best practice 
+
+    --Arrow Functions
+        there is some advantages/disadvantages when using arrow functions with this keyword...etc (LATER)
+
+--ForEach method and callbacks
+    callback functions: are function that we pass to other functions as arguments.
+
+    // CallBack functions 
+    const ops = (addOperation) => {
+    console.log(addOperation(10, 20));
+    }
+
+    const add = (a, b) => a + b;
+    ops(add);
+
+    forEach() method, accepts a classback function as an argument
+
+--Objects literlas
+    object holds key-value pairs, the props of an object can be accessed using the DOT notation or square brackets
+    example: object1.prop1 or object1['prop1']
+
+--THIS keyword
+    this refers to the global object Window by default 
+
+    when calling a method of an object and that method is defined as a arrow function, THIS keyword will refer to 
+    the object which called the arrow function.
+
+    we must declare the methods of an object as anonymous functions so that the THIS keyword refer to the actual 
+    object.
+
+    example:
+    const post = {
+        title: 'test',
+        test: 'honsi',
+        func() {
+        console.log('am a function');
+        }
+    }
+
+
+--Primitive vs Reference types
+    primitives: numbers, strings, booleans, symbol..etc
+    references: all variables of type object, function, array...etc
+
+    primitives are stored in memory in the stack
+        const val1 = 1;
+        const val2 = val1
+        val1 = 2;
+        console.log(val1, val2); // returns 2, 1
+
+    references are stored in memory in the heap
+        const objec1 = {prop: 'test'};
+        const object2 = object1;
+        object1.prop = 'testUpdated'; // only the pointer that gets copied 
+
+        console.log(object1, object2); // returns (prop: 'testUpdated'), (prop: 'testUpdated'), bcz object2 points
+        to the same object in memory (heap) as object1, 
+
+
+
+
+  
+
+
+
+
+
+    
+
+
+
+
+
+
+

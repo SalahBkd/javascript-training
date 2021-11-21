@@ -1,0 +1,45 @@
+. js is single threaded
+. start something now, finish later
+. JS executes statements one after the other, when we have an asynchronous call, the browser takes the request and
+    puts it in another context that way js continues executing, after the request is finished the callback function
+    return the response.
+. advanced concepts: event loop, call stack (later)
+
+. XMLHttpRequest object
+
+--JSON 
+    the response that we get from an api call is in format of STRING 
+
+--Callback hell
+    when do you need to make an api call, based on the response from another api call
+    callback hell: having nested callbacks, this could be refactored using PROMISES.
+
+--Promises
+    Iam gonna do something at some point and am gonna reject or resolve at some point also 
+    we can chain promises to perform task after another rather than doing a callback hell
+
+--Fetch API
+    The Fetch API provides an interface for fetching resources (including across the network). 
+    It will seem familiar to anyone who has used XMLHttpRequest, but the new API provides a more
+    powerful and flexible feature set.
+
+    implements the promises unde the hood
+
+    less and maintainable code than XMLHttpRequest
+
+--Async / Await
+    keyword introduced recently in JS
+
+    chain promises together in a clean and readable way
+
+    we encapsulate our asynchronous code in a function
+
+    when we add ASYNC to a function, the function becomes asynchronous and returns a promise.
+
+    when we attach AWAIT to a fetching function the assignement of the result to a variable
+    will not be procced until the fetching is done.
+
+    not supported by all the browser e.g: internet explorer, but they are supported in
+    modern ones
+
+

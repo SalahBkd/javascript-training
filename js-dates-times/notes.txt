@@ -1,0 +1,6 @@
+--timestamps
+    very useful, they are used to know the difference between two dates.
+    how to show the user that a blog post is created numberOfDays ago ?
+
+--date library 
+    check out date-fns

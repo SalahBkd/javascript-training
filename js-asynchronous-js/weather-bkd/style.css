@@ -1,0 +1,28 @@
+.content {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    }
+
+.heading {
+    margin-bottom: 5px;
+    font: bold;
+    }   
+
+.para {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.state {
+    font-style: italic;
+}
+
+.city {
+    font-size: medium;
+}

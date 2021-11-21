@@ -1,0 +1,94 @@
+--Intro 
+    document object is created by the browser
+    models the view html elements in hierarichal tree
+    allows us to interact with the web pages
+
+    if we want to interact the document gives us a reference to a certain node
+
+
+--Querying the DOM 
+    using document.querySelector() for single elements 
+    using document.querySelectorAll() for selecting multiple elements, can be used with foreach
+    getElementBydId() based on the id of the elements
+    getElementsByClassName(), gets elements of type HTMLCollection can't used in a foreach method 
+
+--innerText prop
+--innerHTML prop 
+
+--getAttribute()
+--setAttribute('href', 'www.google.com');
+the attributes methods can be useful in forms, if the forms have any errors we can change the class of a div to error..getElementsByClassName
+
+
+--changing css style attribute 
+
+--changing css classes from JS, with element.classList.add() | element.classList.remove() || element.classList.toggle()
+
+--element.children | element.parentElement.parentElement
+    we can traverse between parent, children and siblings
+    usecase: an article element has multiple sub-elements how to select the sub-elements in one query ?
+    its tedious to create a query for each element !
+
+--Events
+    --click Events 
+    we add an event listener to an element 
+    we pass a callback function to the event listener 
+    we utilize the event argument of the event listener 
+    ...
+
+--Creating and removing elements 
+    element.remove();
+    document.createElement('p').textContent = 'TEXT';
+    ul.append(li); 
+    ul.prepend(li);
+
+--Event bubbling
+    we have LI elements attached to event listeners that are inside UL elements, if we triggered the event of LI 
+    the event listener bubbles to the parent element which is UL and see if there is any eventlisteners attached 
+    and triggers them and the bubbling keeps going to the top element.
+
+    we can stop bubbling by calling a method on the event argument of the triggered event of an element 
+    e.stopPropagation();
+
+    NB: THIS IS USEFUL TO AVOID ANY UNEXPECTED BEHAVIOUR.
+
+    --example
+    
+    items.forEach(item => {
+        item.addEventListener('click', e => {
+            e.target.remove(); 
+            e.stopPropagation();
+            console.log('clicked li');
+        });
+    });
+
+--Event delegation
+    if we have lis within a ul its costly to attach events to each li and its not a best practice.
+    rather we put one event listener at the parent of lis, ul and then we use the tagname property of e.target to get 
+    the clicked element.
+
+    --example:
+    ul.addEventListener('click', (e) => {
+    if(e.target.tagName === 'LI') {
+        e.target.remove();
+    }
+    })
+
+--More DOM Events
+    copy, mousemove, wheel (scroll)
+    check out the MDN doc for more infos
+    
+
+--Window object
+    the global object of all js funnctionalities
+    usecases:
+        window.console.log('test');
+        window.document.querySelector('..');
+        window.alert();
+        
+
+
+
+
+
+

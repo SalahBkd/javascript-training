@@ -1,0 +1,3 @@
+pre-reqs: node & npm
+babel: is a transcompiler tool, translates ecmascript15+ into backward compatable js versions that can be run by older JS engines
+webpack: module bundler, takes multiple source files and translates them into one file

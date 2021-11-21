@@ -1,0 +1,69 @@
+--IMPORTANT
+    --Syntax Parser
+    --Lexical Environement
+    --Execution context
+    --Name Value Pairs 
+    --Objects: collection of name/value pairs 
+
+--The Global Environement & The global object 
+    js engine kay3tina chi hwayj (code) machi ana li ktabthum
+
+    by default JS engine provide us with already written code for different environements 
+
+    in the browser we have the window object & this keyword 
+
+    so every time we write the code we will be having this stuff: 
+        -THIS: refers to the window object by default 
+        -WINDOW: global object 
+        -OUTER Enviroement
+        -OUR ACTUAL CODE 
+
+    example:
+        run the code, js engine will provide us with already written code (window & this)
+            & our code then results
+
+--Hoisting & the creation phase/ the execution phase
+    let a = 'test'
+    func1(); // func1 called
+    function func1() { console.log('func1 called')}
+
+    Hoisting hiya fach engine kay alloci lmemory lvariables w functions in memory (variables & functions setup)
+
+    first the engine allocates the variables and functions in memory (THE CREATION PHASE)
+    then it executes the written statements (THE EXECUTION PHASE) 
+
+    everytime engine kaydir creation phase (vars & funcs setup), then kaydir execution phase 
+    (assignements & functions invocation)
+
+--undefined
+    undefined special keyword kat3ni notset, ay variable kan declarewh bla value, undefined value is set 
+    by default lih
+    
+--single threaded synchronous execution
+    js is single threaded, one commande at a time 
+    synchronous one thing at a time and in order 
+
+    asynchronous can be implemented under the hood of the browser
+
+
+--function invocation & execution stack
+    func1(); invocation 
+    execution stack hwa fach kan3ayto l fonction wast fonction w called fonction khas 7ta tsali 3ad nkamlo..
+    (check out the example code)
+
+
+--scope chain 
+    hey am a function am gonna output the value of a variable li mamdeclarech fi function context dyali,
+    ok 4anchuf fi OUTER ENVIRONMENT dyali,
+    achman LEXICAL ENVIRONMENT fach kayna, wach ana mdeclarya fi global context wla fi context dyal chi function wla chnu ?
+    nti mdeclarya fi function context 
+    ok wach kayn chi variable fi had function context , non makaynch
+    ok wach kayn fi global context
+    oui kayn 
+    ok output it 
+
+--let keyword  
+    introduces block-level scope 
+    example: if { let a = 100 }
+
+

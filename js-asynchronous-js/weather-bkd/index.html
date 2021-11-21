@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="display-3 heading centered">WEATHER BKD</h1>
+            <h1 class="para centered">check weather status for your city</h1>
+            <form>
+                <div class="form-group">
+                    <input class="form-control" name="inputSearch" type="text" placeholder="city name. ." id="exampleInputEmail1">
+                </div>
+            </form>
+            <div class="card" style="width: 25rem; margin: 0 auto;">
+                <!-- night sky, daylisght, rainy, sunny, dabab, snowing  -->
+                <img src="https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/cumulus-cloud.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="temp"></p>
+                  <p class="weatherText"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/forecast.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>

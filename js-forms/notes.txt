@@ -1,0 +1,13 @@
+--submitting forms
+    we can prevent the default behaviour of submitting forms (reloading the page after each submit)
+    with: e.preventDefault();
+
+    we can get the attributes of the submitted forms with form.username | form.password..etc 
+    
+    we often put the event listener at the form element 
+
+--RegX
+    --we can use test() on a regx to test for a word
+    --get the basics
+    --check out thenetninja regx youtube playlist for more infos
+    
