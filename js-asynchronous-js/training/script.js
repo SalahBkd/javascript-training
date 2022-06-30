@@ -1,3 +1,5 @@
+// AJAX (XMLHttpRequest) / Event Loop + Event Queue --> Callbacks --> Callback Hell --> Promises --> Async / Await
+
 // simple asynchronous code
 // console.log('1');
 // console.log('2');
@@ -10,7 +12,7 @@
 // asynchronous code by making request to other resources via network
 // const getTodos = (callback) => {
 //     const request = new XMLHttpRequest();
-
+//
 //     request.addEventListener('readystatechange', () => {
 //         if(request.readyState === 4 && request.status === 200) {
 //             const data = JSON.parse(request.responseText);
@@ -19,9 +21,9 @@
 //             callback("couldn't fetch the data", undefined);
 //         }
 //     });
-    
+//
 //     request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
-//     //request.open('GET', 'json-example.json');
+//     request.open('GET', 'json-example.json');
 //     request.send();
 // }
 
@@ -78,70 +80,64 @@
 
 
 // promises - simple example
+const doSomethingThatTakesTime = () => {
+    return new Promise((resolve, reject) => {
+        // do something that takes long and return the result (resolved or rejected)
+        //resolve('AM RESOLVED');
+        reject('NOT RESOLVED!');
+    });
+}
 
-// const doSomethingThatTakesTime = () => {
-    
-//     return new Promise((resolve, reject) => {
-//         // do something that takes long and return the result (resolved or rejected)
-//         //resolve('AM RESOLVED');
-//         reject('NOT RESOLVED!');
-//     });
-// }
+doSomethingThatTakesTime().then((data) => {
+    console.log(data);
+}, (err) => {
+    console.log(err);
+});
 
-// doSomethingThatTakesTime().then((data) => {
-//     console.log(data);
-// }, (err) => {
-//     console.log(err);
-// });
-
-// doSomethingThatTakesTime().then((data) => {
-//     console.log(data);
-// }).catch(err => {
-//     console.log(err);
-// }) 
+doSomethingThatTakesTime().then((data) => {
+    console.log(data);
+}).catch(err => {
+    console.log(err);
+})
 
 // promises - usecase example
-// const getTodos = (resource) => {
+const getTodos = (resource) => {
+    return new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest();
 
-//     return new Promise((resolve, reject) => {
-//         const request = new XMLHttpRequest();
+        request.addEventListener('readystatechange', () => {
+            if(request.readyState === 4 && request.status === 200) {
+                const data = JSON.parse(request.responseText);
+                resolve(data);
+            } else if(request.readyState === 4) {
+                reject("couldn't fetch the data");
+            }
+        });
 
-//         request.addEventListener('readystatechange', () => {
-//             if(request.readyState === 4 && request.status === 200) {
-//                 const data = JSON.parse(request.responseText);
-//                 resolve(data);
-//             } else if(request.readyState === 4) {
-//                 reject("couldn't fetch the data");
-//             }
-//         });
-
-//         request.open('GET', resource);
-//         request.send();
-//     });
-// }
+        request.open('GET', resource);
+        request.send();
+    });
+}
 
 // this is a much cleaner and maintainable than the callback hell.
-// getTodos("resources/salahbooks.json")
-// .then((data) => {
-//     console.log(data);
-//     return getTodos("resources/ayoubbooks.json");
-// }).then((data) => {
-//     console.log(data);
-//     return getTodos("resources/ousamabooks.json")
-// })
-// .then((data) => {
-//     console.log(data);
-// })
-// .catch((err) => console.log(err));
+getTodos("resources/salahbooks.json").then((data) => {
+    console.log(data);
+    return getTodos("resources/ayoubbooks.json");
+}).then((data) => {
+    console.log(data);
+    return getTodos("resources/ousamabooks.json")
+}).then((data) => {
+    console.log(data);
+}).catch((err) => console.log(err));
 
 // Fetch API
-// fetch('resources/salahbooks.json').then((response) => {
-//     return response.json(); // that returns a promise.
-// }).then((data) => { // chaining
-//     console.log(data);
-// }).catch((err) => {
-//     console.log('rejected: ', err);
-// })
+fetch('resources/salahbooks.json').then((response) => {
+    return response.json(); // that returns a promise.
+}).then((data) => { // chaining
+    console.log(data);
+}).catch((err) => {
+    console.log('rejected: ', err);
+})
 
 const getTodos = async () => {
     const response = await fetch('resources/salahbooks.jsson');
